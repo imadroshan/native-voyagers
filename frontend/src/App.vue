@@ -1,47 +1,27 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  <v-app>
+    <NavBar @toggleDrawer="drawer = !drawer" @toggleDialog="dialog = !dialog" />
+    <SearchDrawer v-model="drawer" />
+    <LoginDialog v-model="dialog" />
+  </v-app>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-}
+<script>
+import NavBar from './components/NavBar.vue'
+import SearchDrawer from './components/SearchDrawer.vue'
+import LoginDialog from './components/LoginDialog.vue'
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-</style>
+export default {
+  components: {
+    NavBar,
+    SearchDrawer,
+    LoginDialog
+  },
+  data() {
+    return {
+      drawer: false,
+      dialog: false
+    };
+  },
+};
+</script>
