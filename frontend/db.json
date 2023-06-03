@@ -1,43 +1,65 @@
 {
-    "users": [
-      {
-        "id": 1,
-        "name": "Imad Roshan",
-        "email": "imad@gmail.com",
-        "password": "imad123",
-        "nativeBlogger": true,
-        "avatar": "https://upload.wikimedia.org/wikipedia/commons/5/5a/SRH_Heidelberg_logo.png"
-      },
-      {
-        "id": 2,
-        "name": "Jane Doe",
-        "email": "jane@example.com",
-        "password": "jane123",
-        "nativeBlogger": false
-      }
-    ],
-    "blogs": [
-      {
-        "id": 1,
-        "title": "Exploring Paris",
-        "body": "Lorem ipsum dolor sit amet...",
-        "authorId": 1
-      },
-      {
-        "id": 2,
-        "title": "Adventures in Tokyo",
-        "body": "Lorem ipsum dolor sit amet...",
-        "authorId": 1
-      }
-    ],
-    "reviews": [
-      {
-        "id": 1,
-        "userId": 2,
-        "blogId": 1,
-        "rating": 4,
-        "comment": "Great blog!"
-      }
-    ]
-  }
-  
+  "users": [
+    {
+      "id": 1,
+      "name": "Imad Roshan",
+      "email": "imad@gmail.com",
+      "password": "imad123",
+      "nativeBlogger": true,
+      "avatar": "https://upload.wikimedia.org/wikipedia/commons/5/5a/SRH_Heidelberg_logo.png"
+    },
+    {
+      "id": 2,
+      "name": "Jane Doe",
+      "email": "jane@example.com",
+      "password": "jane123",
+      "nativeBlogger": false
+    },
+    {
+      "name": "hamad",
+      "email": "hamad@gmail.com",
+      "password": "hamad",
+      "nativeBlogger": false,
+      "id": 3
+    },
+    {
+      "name": "Jehangir",
+      "email": "Jehangir@gmail.com",
+      "password": "jehangir123",
+      "nativeBlogger": true,
+      "avatar": "https://i.kinja-img.com/gawker-media/image/upload/t_original/ijsi5fzb1nbkbhxa2gc1.png",
+      "id": 4
+    },
+    {
+      "name": "another user",
+      "email": "user@gmail.com",
+      "password": "user123",
+      "nativeBlogger": true,
+      "avatar": "",
+      "id": 5
+    }
+  ],
+  "blogs": [
+    {
+      "id": 1,
+      "title": "Exploring Paris",
+      "body": "Lorem ipsum dolor sit amet...",
+      "authorId": 1
+    },
+    {
+      "id": 2,
+      "title": "Adventures in Tokyo",
+      "body": "Lorem ipsum dolor sit amet...",
+      "authorId": 1
+    }
+  ],
+  "reviews": [
+    {
+      "id": 1,
+      "userId": 2,
+      "blogId": 1,
+      "rating": 4,
+      "comment": "Great blog!"
+    }
+  ]
+}

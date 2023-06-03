@@ -3,6 +3,7 @@
     <v-app-bar-nav-icon @click="$emit('toggleDrawer')"></v-app-bar-nav-icon>
     <v-toolbar-title>Native Voyager</v-toolbar-title>
     <v-spacer></v-spacer>
+    <v-btn class="signup-button" v-if="!loggedIn" @click="$emit('toggleSignupDialog')">Sign Up</v-btn> <!-- signup button-->
     <v-btn class="login-button" v-if="!loggedIn" @click="$emit('toggleDialog')">Login</v-btn>
     <v-menu offset-y v-else>
       <template v-slot:activator="{ on, attrs }">
@@ -52,6 +53,11 @@ export default {
 </script>
 
 <style scoped>
+.signup-button {
+  background-color: #0b8e81 !important; /* Indigo darken-1 */
+  color: white !important;
+  margin-right: 10px;
+}
 .login-button {
   background-color: #2E7D32 !important; /* Green darken-3 */
   color: white !important;
