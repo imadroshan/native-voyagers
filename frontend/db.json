@@ -1,0 +1,43 @@
+{
+    "users": [
+      {
+        "id": 1,
+        "name": "Imad Roshan",
+        "email": "imad@gmail.com",
+        "password": "imad123",
+        "nativeBlogger": true,
+        "avatar": "https://upload.wikimedia.org/wikipedia/commons/5/5a/SRH_Heidelberg_logo.png"
+      },
+      {
+        "id": 2,
+        "name": "Jane Doe",
+        "email": "jane@example.com",
+        "password": "jane123",
+        "nativeBlogger": false
+      }
+    ],
+    "blogs": [
+      {
+        "id": 1,
+        "title": "Exploring Paris",
+        "body": "Lorem ipsum dolor sit amet...",
+        "authorId": 1
+      },
+      {
+        "id": 2,
+        "title": "Adventures in Tokyo",
+        "body": "Lorem ipsum dolor sit amet...",
+        "authorId": 1
+      }
+    ],
+    "reviews": [
+      {
+        "id": 1,
+        "userId": 2,
+        "blogId": 1,
+        "rating": 4,
+        "comment": "Great blog!"
+      }
+    ]
+  }
+  

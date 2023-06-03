@@ -5,10 +5,15 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    // your data goes here
+    currentUser: null
   },
   mutations: {
-    // synchronous functions to modify state
+    login(state, user) {
+      state.currentUser = user
+    },
+    logout(state) {
+      state.currentUser = null
+    }
   },
   actions: {
     // asynchronous operations can go here
