@@ -1,5 +1,5 @@
 <template>
-  <v-toolbar color="grey darken-3" dark>
+  <v-toolbar class="my-toolbar" color="grey darken-3" dark>
     <v-app-bar-nav-icon @click="$emit('toggleDrawer')"></v-app-bar-nav-icon>
     <v-toolbar-title>Native Voyager</v-toolbar-title>
     <v-spacer></v-spacer>
@@ -40,7 +40,7 @@ export default {
   },
   methods: {
     gotoProfile() {
-      // Navigate to profile page.
+      this.$router.push('/profile');
     },
     gotoSettings() {
       // Navigate to settings page.
@@ -61,5 +61,16 @@ export default {
 .login-button {
   background-color: #2E7D32 !important; /* Green darken-3 */
   color: white !important;
+}
+.v-sheet {
+  height: 64px;
+}
+.my-toolbar {
+  contain: layout;
+  display: block;
+  flex: none; 
+  max-width: 100%;
+  transition: transform .2s cubic-bezier(.4,0,.2,1),background-color .2s cubic-bezier(.4,0,.2,1),left .2s cubic-bezier(.4,0,.2,1),right .2s cubic-bezier(.4,0,.2,1),box-shadow .28s cubic-bezier(.4,0,.2,1),max-width .25s cubic-bezier(.4,0,.2,1),width .25s cubic-bezier(.4,0,.2,1);
+  position: relative;
 }
 </style>

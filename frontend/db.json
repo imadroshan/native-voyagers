@@ -1,12 +1,11 @@
 {
   "users": [
     {
-      "id": 1,
       "name": "Imad Roshan",
-      "email": "imad@gmail.com",
-      "password": "imad123",
-      "nativeBlogger": true,
-      "avatar": "https://upload.wikimedia.org/wikipedia/commons/5/5a/SRH_Heidelberg_logo.png"
+      "email": "",
+      "password": "",
+      "avatar": "",
+      "id": 1
     },
     {
       "id": 2,
@@ -37,6 +36,22 @@
       "nativeBlogger": true,
       "avatar": "",
       "id": 5
+    },
+    {
+      "name": "manish",
+      "email": "manish@gmail.com",
+      "password": "manish123",
+      "nativeBlogger": true,
+      "avatar": "",
+      "id": 6
+    },
+    {
+      "name": "test",
+      "email": "test@test.com",
+      "password": "test",
+      "nativeBlogger": false,
+      "avatar": "",
+      "id": 7
     }
   ],
   "blogs": [
