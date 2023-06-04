@@ -38,7 +38,7 @@ export default {
     async submitForm() {
       try {
         const response = await axios.get('http://localhost:3000/users')
-        const user = response.data.find(user => user.email === this.email && user.password === this.password && user.nativeBlogger)
+        const user = response.data.find(user => user.email === this.email && user.password === this.password)
 
         if (user) {
           this.$store.commit('login', user)
