@@ -49,6 +49,7 @@
   
             this.$store.commit('login', response.data)
             this.$emit('input', false)
+            this.$router.push('/profile')
           } catch (error) {
             console.error('Failed to sign up:', error)
           }

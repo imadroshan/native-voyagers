@@ -62,9 +62,7 @@ export default {
   background-color: #2E7D32 !important; /* Green darken-3 */
   color: white !important;
 }
-.v-sheet {
-  height: 64px;
-}
+
 .my-toolbar {
   contain: layout;
   display: block;

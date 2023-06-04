@@ -1,57 +1,34 @@
 {
   "users": [
     {
-      "name": "Imad Roshan",
-      "email": "",
-      "password": "",
-      "avatar": "",
+      "name": "Imad",
+      "email": "imad@gmail.com",
+      "password": "Imad123",
+      "avatar": "https://i.kinja-img.com/gawker-media/image/upload/t_original/ijsi5fzb1nbkbhxa2gc1.png",
+      "location": {
+        "lng": 8.420553718446172,
+        "lat": 49.48200601221086
+      },
       "id": 1
     },
     {
-      "id": 2,
-      "name": "Jane Doe",
-      "email": "jane@example.com",
-      "password": "jane123",
-      "nativeBlogger": false
-    },
-    {
-      "name": "hamad",
-      "email": "hamad@gmail.com",
-      "password": "hamad",
-      "nativeBlogger": false,
-      "id": 3
-    },
-    {
-      "name": "Jehangir",
-      "email": "Jehangir@gmail.com",
-      "password": "jehangir123",
-      "nativeBlogger": true,
+      "name": "Enis",
+      "email": "enis@gmail.com",
+      "password": "Enis123",
       "avatar": "https://i.kinja-img.com/gawker-media/image/upload/t_original/ijsi5fzb1nbkbhxa2gc1.png",
-      "id": 4
+      "location": {
+        "lng": 8.694724,
+        "lat": 49.409358
+      },
+      "id": 2
     },
     {
-      "name": "another user",
-      "email": "user@gmail.com",
-      "password": "user123",
+      "name": "Janan",
+      "email": "janan@gmail.com",
+      "password": "Janan123",
       "nativeBlogger": true,
       "avatar": "",
-      "id": 5
-    },
-    {
-      "name": "manish",
-      "email": "manish@gmail.com",
-      "password": "manish123",
-      "nativeBlogger": true,
-      "avatar": "",
-      "id": 6
-    },
-    {
-      "name": "test",
-      "email": "test@test.com",
-      "password": "test",
-      "nativeBlogger": false,
-      "avatar": "",
-      "id": 7
+      "id": 3
     }
   ],
   "blogs": [
