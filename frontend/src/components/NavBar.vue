@@ -3,6 +3,7 @@
     <v-app-bar-nav-icon @click="$emit('toggleDrawer')"></v-app-bar-nav-icon>
     <v-toolbar-title>Native Voyager</v-toolbar-title>
     <v-spacer></v-spacer>
+        <v-btn  class="my-blog-button" @click="gotoMyBlog" v-if="loggedIn">My Blog</v-btn>
     <v-btn class="signup-button" v-if="!loggedIn" @click="$emit('toggleSignupDialog')">Sign Up</v-btn> <!-- signup button-->
     <v-btn class="login-button" v-if="!loggedIn" @click="$emit('toggleDialog')">Login</v-btn>
     <v-menu offset-y v-else>
@@ -39,6 +40,9 @@ export default {
     }),
   },
   methods: {
+    gotoMyBlog() {
+      this.$router.push('/myblog');
+    },
     gotoProfile() {
       this.$router.push('/profile');
     },
