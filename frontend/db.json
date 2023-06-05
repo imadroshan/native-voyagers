@@ -29,6 +29,17 @@
       "nativeBlogger": true,
       "avatar": "",
       "id": 3
+    },
+    {
+      "name": "imad1",
+      "email": "imad1@gmail.com",
+      "password": "Imad1234",
+      "avatar": "",
+      "location": {
+        "lng": 8.647363280764239,
+        "lat": 49.41254059537388
+      },
+      "id": 4
     }
   ],
   "blogs": [

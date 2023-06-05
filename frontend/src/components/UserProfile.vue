@@ -29,6 +29,7 @@ export default {
       email: this.$store.state.currentUser.email,
       password: this.$store.state.currentUser.password,
       avatarUrl: this.$store.state.currentUser.avatar,
+      location: this.$store.state.currentUser.location || [0, 0],
       map: null,
       marker: null
     }
@@ -39,7 +40,7 @@ export default {
     this.map = new mapboxgl.Map({
       container: this.$refs.mapContainer,
       style: 'mapbox://styles/mapbox/streets-v11',
-      center: [0, 0],
+      center: this.location,
       zoom: 2
     })
 
@@ -53,7 +54,7 @@ export default {
     // Create draggable marker
     this.marker = new mapboxgl.Marker({
       draggable: true
-    }).setLngLat([0, 0]).addTo(this.map)
+    }).setLngLat(this.location).addTo(this.map)
 
     // Set marker position to geocoder result
     geocoder.on('result', e => {
