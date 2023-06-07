@@ -41,7 +41,10 @@ export default {
   },
   methods: {
     gotoMyBlog() {
-      this.$router.push('/myblog');
+      // Check if the current route is already '/myblog' to avoid redundant navigation
+      if (this.$route.path !== '/myblog') {
+        this.$router.push('/myblog');
+      }
     },
     gotoProfile() {
       this.$router.push('/profile');

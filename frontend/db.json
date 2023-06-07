@@ -40,20 +40,72 @@
         "lat": 49.41254059537388
       },
       "id": 4
+    },
+    {
+      "name": "enes",
+      "email": "enes@gmail.com",
+      "password": "qwerasdf",
+      "nativeBlogger": true,
+      "avatar": "",
+      "id": 5
+    },
+    {
+      "name": "enes1",
+      "email": "enes1@gmail.com",
+      "password": "qwerasdf",
+      "nativeBlogger": true,
+      "avatar": "",
+      "id": 6
     }
   ],
   "blogs": [
     {
-      "id": 1,
-      "title": "Exploring Paris",
-      "body": "Lorem ipsum dolor sit amet...",
-      "authorId": 1
+      "title": "try1",
+      "content": "this is one of the ",
+      "blogImgUrl": "https://neilpatel.com/wp-content/uploads/2017/08/blog.jpg",
+      "authorId": 5,
+      "url": "http://localhost:3000/blogs/5",
+      "id": 3
     },
     {
-      "id": 2,
-      "title": "Adventures in Tokyo",
-      "body": "Lorem ipsum dolor sit amet...",
-      "authorId": 1
+      "title": "neeeeee",
+      "content": "try 6 ",
+      "blogImgUrl": "https://neilpatel.com/wp-content/uploads/2017/08/blog.jpg",
+      "authorId": 6,
+      "url": "http://localhost:3000/blogs/6",
+      "id": 4
+    },
+    {
+      "title": "deneme1",
+      "content": "deneme 2",
+      "blogImgUrl": "https://neilpatel.com/wp-content/uploads/2017/08/blog.jpg",
+      "authorId": 6,
+      "url": "http://localhost:3000/blogs/6",
+      "id": 5
+    },
+    {
+      "title": "neeeeqw",
+      "content": "casdcasdc",
+      "blogImgUrl": "https://media.istockphoto.com/id/887987150/de/foto/blogging-frau-blog-lesen.jpg?s=612x612&w=0&k=20&c=5ubwC0Udbmee9MYJtE0aVHc3VEKIW-D6UR21bTj335I=",
+      "authorId": 6,
+      "url": "http://localhost:3000/blogs/6",
+      "id": 6
+    },
+    {
+      "title": "neeeesdfsadf",
+      "content": "casdfdvrcgferg",
+      "blogImgUrl": "https://media.istockphoto.com/id/887987150/de/foto/blogging-frau-blog-lesen.jpg?s=612x612&w=0&k=20&c=5ubwC0Udbmee9MYJtE0aVHc3VEKIW-D6UR21bTj335I=",
+      "authorId": 6,
+      "url": "http://localhost:3000/blogs/6",
+      "id": 7
+    },
+    {
+      "title": "frfsdf",
+      "content": "erfgerverfv",
+      "blogImgUrl": "https://neilpatel.com/wp-content/uploads/2017/08/blog.jpg",
+      "authorId": 6,
+      "url": "http://localhost:3000/blogs/6",
+      "id": 8
     }
   ],
   "reviews": [
