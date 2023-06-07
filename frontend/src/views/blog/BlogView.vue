@@ -19,17 +19,33 @@
           <label for="blog-url">Blog Image URL</label>
           <input id="blog-url" type="text" placeholder="Enter Blog Image URL" v-model="blogImgUrl" />
         </div>
+        <div ref="mapContainer" class="mapBox"></div>
         <div class="blog-actions">
           <button @click="createBlog">Publish Blog</button>
-          <router-link class="router-button" :to="{ name: 'BlogPreview' }">Post Preview</router-link>
+          <button @click="cancelCreateBlog">Cancel</button>
         </div>
       </div>
     </div>
+
+    <!-- card list -->
+    <div class="blog-list">
+      <b-card v-for="blog in blogs" :key="blog.id" class="mb-2">
+        <b-card-img :src="blog.blogImgUrl" alt="Blog Image" top></b-card-img>
+        <b-card-body>
+          <b-card-title>{{ blog.title }}</b-card-title>
+          <b-card-text>{{ blog.content }}</b-card-text>
+          <b-button :href="blog.url" variant="primary">Read More</b-button>
+        </b-card-body>
+      </b-card>
+    </div>
+
   </div>
 </template>
 
 <script>
 import axios from 'axios'
+import mapboxgl from 'mapbox-gl'
+import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder'
 
 export default {
   name: "CreatePost",
@@ -40,8 +56,46 @@ export default {
       blogImgUrl: "",
       error: null,
       errorMsg: null,
-      showPopup: false
+      showPopup: false,
+      blogs: []
     };
+  },
+  mounted() {
+    this.fetchBlogs();
+    // Initialize map
+    mapboxgl.accessToken = process.env.VUE_APP_MAPBOX_TOKEN
+    this.map = new mapboxgl.Map({
+      container: this.$refs.mapContainer,
+      style: 'mapbox://styles/mapbox/streets-v11',
+      center: this.location,
+      zoom: 2
+    })
+
+    // Add geocoder control
+    const geocoder = new MapboxGeocoder({
+      accessToken: mapboxgl.accessToken,
+      mapboxgl: mapboxgl
+    })
+    this.map.addControl(geocoder)
+
+    // Create draggable marker
+    this.marker = new mapboxgl.Marker({
+      draggable: true
+    }).setLngLat(this.location).addTo(this.map)
+
+    // Set marker position to geocoder result
+    geocoder.on('result', e => {
+      if (this.marker) {
+        this.marker.remove(); // Remove the old marker
+      }
+      
+      this.marker = new mapboxgl.Marker({ draggable: true })
+        .setLngLat(e.result.geometry.coordinates)
+        .addTo(this.map);
+    })
+
+    // Fetch existing blogs
+    
   },
   methods: {
     showCreatePostPopup() {
@@ -61,6 +115,7 @@ export default {
           .post("http://localhost:3000/blogs", newBlog)
           .then(response => {
             console.log(response.data);
+            this.fetchBlogs();
           })
           .catch(error => {
             console.error(error);
@@ -78,12 +133,37 @@ export default {
         }, 5000);
       }
     },
+    cancelCreateBlog() {
+      this.showPopup = false;
+    },
+    fetchBlogs() {
+      // Perform an API request to fetch the blogs
+      // Replace the API endpoint with your actual endpoint
+      axios.get('http://localhost:3000/blogs')
+        .then(response => {
+          this.blogs = response.data;
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    }
   },
 };
 </script>
 
 
 <style lang="scss">
+.blog-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 1rem;
+}
+
+.mapBox{
+  width: 50%; 
+  height: 250px;
+}
+
 .create-post {
   position: relative;
   height: 100%;
@@ -99,6 +179,9 @@ export default {
     background-color: #a91616;
     // text-decoration: none;
     border: 2px solid transparent;
+    margin-top: 20px;
+    margin-left: 100px;
+    margin-bottom: 50px;
 
     &:hover {
       background-color: rgba(123, 15, 15, 0.7);
@@ -116,15 +199,16 @@ export default {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 800px;
-    background-color: #ffffff26;
+    background-color: #FFE9E9;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
     padding: 20px;
   }
 
   .container {
     position: relative;
-    height: 100%;
+    height: 80%;
     padding: 10px 25px 60px;
   }
 
@@ -177,7 +261,7 @@ export default {
   }
 
   .editor {
-    height: 60vh;
+    height: 40vh;
     display: flex;
     flex-direction: column;
     margin-bottom: 32px;
@@ -232,5 +316,53 @@ export default {
       margin-right: 16px;
     }
   }
+  .blog-card {
+      width: 200px;
+      height: 300px;
+      margin: 0 10px 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      overflow: hidden;
+
+      .blog-image {
+        height: 200px;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .blog-content {
+        padding: 10px;
+
+        h3 {
+          font-size: 16px;
+          margin-bottom: 10px;
+        }
+
+        .blog-buttons {
+          display: flex;
+          justify-content: space-between;
+
+          button {
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+
+            &.edit-button {
+              background-color: #1e90ff;
+              color: #fff;
+            }
+
+            &.delete-button {
+              background-color: #ff0000;
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
 }
 </style>
