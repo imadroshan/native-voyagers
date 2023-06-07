@@ -35,6 +35,7 @@
           <b-card-title>{{ blog.title }}</b-card-title>
           <b-card-text>{{ blog.content }}</b-card-text>
           <b-button :href="blog.url" variant="primary">Read More</b-button>
+              <b-button @click="deleteBlog(blog.id)" variant="danger">Delete</b-button>
         </b-card-body>
       </b-card>
     </div>
@@ -141,7 +142,21 @@ export default {
       // Replace the API endpoint with your actual endpoint
       axios.get('http://localhost:3000/blogs')
         .then(response => {
-          this.blogs = response.data;
+          // Filter blogs based on the current user's id
+          const filteredBlogs = response.data.filter(blog => blog.authorId === this.$store.state.currentUser.id);
+          this.blogs = filteredBlogs;
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    },
+    deleteBlog(blogId) {
+      // Perform an API request to delete the blog
+      // Replace the API endpoint with your actual endpoint
+      axios.delete(`http://localhost:3000/blogs/${blogId}`)
+        .then(() => {
+          // Remove the deleted blog from the list
+          this.blogs = this.blogs.filter(blog => blog.id !== blogId);
         })
         .catch(error => {
           console.error(error);
