@@ -2,43 +2,70 @@
   <div class="create-post">
     <button class="create-post-button" @click="showCreatePostPopup">Create Blog</button>
 
-    <div v-if="showPopup" class="create-post-popup">
-      <div class="container">
-        <div :class="{ invisible: !error }" class="err-message">
-          <p><span>Error:</span>{{ errorMsg }}</p>
-        </div>
-        <div class="blog-info">
-          <label for="blog-title">Blog Title</label>
-          <input id="blog-title" type="text" placeholder="Enter Blog Title" v-model="blogTitle" />
-        </div>
-        <div class="editor">
-          <label for="blog-content">Blog Content</label>
-          <textarea id="blog-content" placeholder="Enter Blog Content" v-model="blogContent"></textarea>
-        </div>
-        <div class="blogImgUrl">
-          <label for="blog-url">Blog Image URL</label>
-          <input id="blog-url" type="text" placeholder="Enter Blog Image URL" v-model="blogImgUrl" />
-        </div>
-        <div ref="mapContainer" class="mapBox"></div>
-        <div class="blog-actions">
-          <button @click="createBlog">Publish Blog</button>
-          <button @click="cancelCreateBlog">Cancel</button>
-        </div>
-      </div>
-    </div>
+                <div v-if="CreatePopup" class="create-post-popup">
+                <div class="container">
+                  <div :class="{ invisible: !error }" class="err-message">
+                    <p><span>Error:</span>{{ errorMsg }}</p>
+                  </div>
+                  <div class="blog-info">
+                    <label for="blog-title">Blog Title</label>
+                    <input id="blog-title" type="text" placeholder="Enter Blog Title" v-model="blogTitle" />
+                  </div>
+                  <div class="editor">
+                    <label for="blog-content">Blog Content</label>
+                    <textarea id="blog-content" placeholder="Enter Blog Content" v-model="blogContent"></textarea>
+                  </div>
+                  <div class="blogImgUrl">
+                    <label for="blog-url">Blog Image URL</label>
+                    <input id="blog-url" type="text" placeholder="Enter Blog Image URL" v-model="blogImgUrl" />
+                  </div>
+                  <div ref="mapContainer" class="mapBox"></div>
+                  <div class="blog-actions">
+                    <button @click="createBlog">Publish Blog</button>
+                    <button @click="cancelCreateBlog">Cancel</button>
+                  </div>
+                </div>
+              </div>
 
-    <!-- card list -->
-    <div class="blog-list">
-      <b-card v-for="blog in blogs" :key="blog.id" class="mb-2">
-        <b-card-img :src="blog.blogImgUrl" alt="Blog Image" top></b-card-img>
-        <b-card-body>
-          <b-card-title>{{ blog.title }}</b-card-title>
-          <b-card-text>{{ blog.content }}</b-card-text>
-          <b-button :href="blog.url" variant="primary">Read More</b-button>
-              <b-button @click="deleteBlog(blog.id)" variant="danger">Delete</b-button>
-        </b-card-body>
-      </b-card>
-    </div>
+              <!-- card list -->
+              <div class="blog-list">
+                <b-card v-for="blog in blogs" :key="blog.id" class="mb-2">
+                  <b-card-img :src="blog.blogImgUrl" alt="Blog Image" top></b-card-img>
+                  <b-card-body>
+                    <b-card-title>{{ blog.title }}</b-card-title>
+                    <b-card-text>{{ blog.content }}</b-card-text>
+                    <!-- <b-button :href="blog.url" variant="primary">Read More</b-button> -->
+                    <b-button @click="openEditPopup(blog)" variant="warning">Edit</b-button>
+                    <b-button @click="deleteBlog(blog.id)" variant="danger">Delete</b-button>
+                  </b-card-body>
+                </b-card>
+              </div>
+
+              <div v-if="editPopup" class="create-post-popup">
+                <div class="container">
+                  <div :class="{ invisible: !error }" class="err-message">
+                    <p><span>Error:</span>{{ errorMsg }}</p>
+                  </div>
+                  <div class="blog-info">
+                    <label for="blog-title">Blog Title</label>
+                    <input id="blog-title" type="text" placeholder="Enter Blog Title" v-model="selectedBlog.title" />
+                  </div>
+                  <div class="editor">
+                    <label for="blog-content">Blog Content</label>
+                    <textarea id="blog-content" placeholder="Enter Blog Content" v-model="selectedBlog.content"></textarea>
+                  </div>
+                  <div class="blogImgUrl">
+                    <label for="blog-url">Blog Image URL</label>
+                    <input id="blog-url" type="text" placeholder="Enter Blog Image URL" v-model="selectedBlog.blogImgUrl" />
+                  </div>
+                  <div ref="mapContainer" class="mapBox"></div>
+                  <div class="blog-actions">
+                    <button @click="saveBlogEdit">Save Changes</button>
+                    <button @click="cancelEdit">Cancel</button>
+                  </div>
+                </div>
+              </div>
+
 
   </div>
 </template>
@@ -57,8 +84,10 @@ export default {
       blogImgUrl: "",
       error: null,
       errorMsg: null,
-      showPopup: false,
-      blogs: []
+      CreatePopup: false,
+      blogs: [],
+      editPopup: false,
+      selectedBlog: null,
     };
   },
   mounted() {
@@ -100,7 +129,7 @@ export default {
   },
   methods: {
     showCreatePostPopup() {
-      this.showPopup = true;
+      this.CreatePopup = true;
     },
     createBlog() {
       if (this.blogTitle.length !== 0 && this.blogContent.length !== 0) {
@@ -125,7 +154,7 @@ export default {
         this.blogTitle = "";
         this.blogContent = "";
         this.blogImgUrl = "";
-        this.showPopup = false;
+        this.CreatePopup = false;
       } else {
         this.error = true;
         this.errorMsg = "Please ensure Blog Title & Blog Content have been filled!";
@@ -135,7 +164,7 @@ export default {
       }
     },
     cancelCreateBlog() {
-      this.showPopup = false;
+      this.CreatePopup = false;
     },
     fetchBlogs() {
       // Perform an API request to fetch the blogs
@@ -161,7 +190,23 @@ export default {
         .catch(error => {
           console.error(error);
         });
-    }
+    },
+    openEditPopup(blog) {
+      this.selectedBlog = blog;
+      this.editPopup = true;
+    },
+    saveBlogEdit() {
+      axios.put(`http://localhost:3000/blogs/${this.selectedBlog.id}`, this.selectedBlog)
+        .then(() => {
+          this.editPopup = false;
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    },
+    cancelEdit() {
+      this.editPopup = false;
+    },
   },
 };
 </script>
