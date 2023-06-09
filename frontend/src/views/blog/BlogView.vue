@@ -34,7 +34,8 @@
           <b-card-body>
             <b-card-title>{{ blog.title }}</b-card-title>
             <b-card-text>{{ blog.content }}</b-card-text>
-            <!-- <b-button :href="blog.url" variant="primary">Read More</b-button> -->
+                      <b-button :href="blog.url" variant="primary" class="read-button">Read More</b-button>
+              
             <b-button @click="openEditPopup(blog)" class="edit-button" variant="warning">Edit</b-button>
           <b-button @click="deleteBlog(blog.id)" variant="danger">Delete</b-button>
         </b-card-body>
@@ -136,7 +137,7 @@ export default {
           content: this.blogContent,
           blogImgUrl: this.blogImgUrl,
           authorId: this.$store.state.currentUser.id,
-          url: `http://localhost:3000/blogs/${this.$store.state.currentUser.id}`
+          url: `http://localhost:3000/blogs/${this.$store.state.currentUser.id}/${this.$store.state.id}`
         };
 
         axios
@@ -243,6 +244,19 @@ export default {
   line-height: 1.5rem;
   height: 6rem; /* 4 x line-height */
   overflow: hidden;
+}
+
+.read-button {
+  background-color: #1e90ff;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.read-button:focus {
+  outline: none;
+  box-shadow: none;
 }
 
 .mapBox{
@@ -445,6 +459,13 @@ export default {
             &.delete-button {
               background-color: #ff0000;
               color: #fff;
+            }
+            &.read-button{
+              background-color: #1e90ff;
+              color: #fff;
+            }
+            .read-button.focus{
+              outline: none;
             }
           }
         }
