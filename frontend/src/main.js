@@ -9,7 +9,9 @@ import HomePageView from './views/HomePageView.vue' // import HomePageView
 import Toast from 'vue-toastification';
 import 'vuetify/dist/vuetify.min.css'
 import 'vue-toastification/dist/index.css'
+import 'swiper/swiper-bundle.css'
 import { BootstrapVue, IconsPlugin} from 'bootstrap-vue'
+
 
 Vue.use(VueRouter)
 Vue.use(Toast)
