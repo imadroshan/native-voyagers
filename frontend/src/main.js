@@ -5,12 +5,11 @@ import vuetify from './plugins/vuetify'
 import VueRouter from 'vue-router'  // import VueRouter
 import UserProfileView from './views/UserProfileView.vue'
 import BlogView from './views/blog/BlogView.vue'
+import HomePageView from './views/HomePageView.vue' // import HomePageView
 import Toast from 'vue-toastification';
 import 'vuetify/dist/vuetify.min.css'
 import 'vue-toastification/dist/index.css'
 import { BootstrapVue, IconsPlugin} from 'bootstrap-vue'
-
-
 
 Vue.use(VueRouter)
 Vue.use(Toast)
@@ -24,6 +23,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 const routes = [
   { path: '/profile', component: UserProfileView },
   { path: '/myblog', component: BlogView },
+  { path: '/', component: HomePageView }  // add this line
 ]
 
 const router = new VueRouter({
