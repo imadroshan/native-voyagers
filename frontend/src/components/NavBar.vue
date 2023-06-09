@@ -47,7 +47,9 @@ export default {
       }
     },
     gotoProfile() {
+      if (this.$route.path !== '/profile') {
       this.$router.push('/profile');
+      }
     },
     gotoSettings() {
       // Navigate to settings page.
