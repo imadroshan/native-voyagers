@@ -1,7 +1,7 @@
 <template>
   <v-toolbar class="my-toolbar" color="grey darken-3" dark>
     <v-app-bar-nav-icon @click="$emit('toggleDrawer')"></v-app-bar-nav-icon>
-    <v-toolbar-title>Native Voyager</v-toolbar-title>
+    <v-toolbar-title class="clickable-title" @click="gotoHomePage">Native Voyager</v-toolbar-title>
     <v-spacer></v-spacer>
     <v-btn  class="my-blog-button" @click="gotoMyBlog" v-if="loggedIn">My Blog</v-btn>
     <v-btn class="signup-button" v-if="!loggedIn" @click="$emit('toggleSignupDialog')">Sign Up</v-btn> 
@@ -57,6 +57,11 @@ export default {
     logout() {
       this.$store.commit('logout')
     },
+    gotoHomePage() {
+      if (this.$route.path !== '/') {
+        this.$router.push('/');
+      }
+    },
   },
 }
 </script>
@@ -83,5 +88,8 @@ export default {
   max-width: 100%;
   transition: transform .2s cubic-bezier(.4,0,.2,1),background-color .2s cubic-bezier(.4,0,.2,1),left .2s cubic-bezier(.4,0,.2,1),right .2s cubic-bezier(.4,0,.2,1),box-shadow .28s cubic-bezier(.4,0,.2,1),max-width .25s cubic-bezier(.4,0,.2,1),width .25s cubic-bezier(.4,0,.2,1);
   position: relative;
+}
+.clickable-title {
+  cursor: pointer;
 }
 </style>
