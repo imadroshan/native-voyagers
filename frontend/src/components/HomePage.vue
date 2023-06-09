@@ -5,6 +5,7 @@
 <script>
 import axios from 'axios'
 import mapboxgl from 'mapbox-gl'
+import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import { Swiper as SwiperClass, Navigation, Pagination } from 'swiper'
 
 SwiperClass.use([Navigation, Pagination]);
@@ -34,7 +35,15 @@ export default {
       style: 'mapbox://styles/mapbox/streets-v11',
       center: [8.6821, 49.3988],
       zoom: 10
-    })
+    });
+
+    //Geocoder for Search box
+    this.map.addControl(
+  new MapboxGeocoder({
+    accessToken: mapboxgl.accessToken,
+    mapboxgl: mapboxgl
+  })
+);
 
     // Create a marker for each user
     for (let user of this.users) {
