@@ -36,6 +36,7 @@
             <b-card-text>{{ blog.content }}</b-card-text>
                       <b-button :href="blog.url" variant="primary" class="read-button">Read More</b-button>
               
+                <b-button @click="openBlog(blog)" class="Read More" variant="warning">Edit</b-button>
             <b-button @click="openEditPopup(blog)" class="edit-button" variant="warning">Edit</b-button>
           <b-button @click="deleteBlog(blog.id)" variant="danger">Delete</b-button>
         </b-card-body>
@@ -202,6 +203,10 @@ export default {
         .catch(error => {
           console.error(error);
         });
+    },
+    openBlog(url) {
+      // Navigate to the blog URL
+      window.location.href = url;
     },
     cancelEdit() {
       this.editPopup = false;
