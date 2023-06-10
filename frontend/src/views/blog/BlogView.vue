@@ -137,7 +137,8 @@ export default {
           content: this.blogContent,
           blogImgUrl: this.blogImgUrl,
           authorId: this.$store.state.currentUser.id,
-          url: `http://localhost:3000/blogs/${this.$store.state.currentUser.id}/${this.$store.state.id}`
+          id: this.blogs.length + 1,
+          url: `http://localhost:3000/blogs/${this.blogs.length + 1}`
         };
 
         axios
@@ -166,13 +167,15 @@ export default {
       this.CreatePopup = false;
     },
     fetchBlogs() {
-      // Perform an API request to fetch the blogs
-      // Replace the API endpoint with your actual endpoint
       axios.get('http://localhost:3000/blogs')
         .then(response => {
-          // Filter blogs based on the current user's id
           const filteredBlogs = response.data.filter(blog => blog.authorId === this.$store.state.currentUser.id);
-          this.blogs = filteredBlogs;
+          this.blogs = filteredBlogs.map(blog => {
+            return {
+              ...blog,
+              url: `http://localhost:3000/blogs/${blog.id}`
+            };
+          });
         })
         .catch(error => {
           console.error(error);
