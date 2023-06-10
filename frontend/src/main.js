@@ -6,6 +6,8 @@ import VueRouter from 'vue-router'  // import VueRouter
 import UserProfileView from './views/UserProfileView.vue'
 import BlogView from './views/blog/BlogView.vue'
 import HomePageView from './views/HomePageView.vue' // import HomePageView
+import ShowAllBlogs from './components/ShowAllBlogs'
+import BlogPost from './components/BlogPost.vue'
 import Toast from 'vue-toastification';
 import 'vuetify/dist/vuetify.min.css'
 import 'vue-toastification/dist/index.css'
@@ -25,6 +27,8 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 const routes = [
   { path: '/profile', component: UserProfileView },
   { path: '/myblog', component: BlogView },
+  { path: '/allblogs', component: ShowAllBlogs },
+  { path: '/blog/:id', component: BlogPost },
   { path: '/', component: HomePageView }  // add this line
 ]
 
