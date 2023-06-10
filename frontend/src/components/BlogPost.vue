@@ -1,4 +1,5 @@
 <template>
+    <!-- Author Manish-->
     <div class="blog-post">
       <h2>{{ blog.title }}</h2>
       <div class="blog-image">
