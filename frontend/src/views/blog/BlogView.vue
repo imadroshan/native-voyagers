@@ -34,13 +34,13 @@
           <b-card-body>
             <b-card-title>{{ blog.title }}</b-card-title>
             <b-card-text>{{ blog.content }}</b-card-text>
-                      <b-button :href="blog.url" variant="primary" class="read-button">Read More</b-button>
-              
+            <b-button @click="openBlog(blog.url)" variant="primary" class="read-button">Read More</b-button>
             <b-button @click="openEditPopup(blog)" class="edit-button" variant="warning">Edit</b-button>
           <b-button @click="deleteBlog(blog.id)" variant="danger">Delete</b-button>
         </b-card-body>
       </b-card>
     </div>
+
 
     <div v-if="editPopup" class="create-post-popup">
       <div class="container">
@@ -192,6 +192,10 @@ export default {
         .catch(error => {
           console.error(error);
         });
+    },
+    openBlog(url) {
+      // Navigate to the blog URL
+      window.location.href = url;
     },
     openEditPopup(blog) {
       this.selectedBlog = blog;
