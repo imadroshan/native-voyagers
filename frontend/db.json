@@ -10,6 +10,39 @@
         49.41255490000216
       ],
       "id": 1
+    },
+    {
+      "name": "Enis Khan",
+      "email": "enis@gmail.com",
+      "password": "enis123",
+      "avatar": "https://i.insider.com/5ba15375e361c01c008b5cf7?width=700",
+      "location": [
+        8.688925599227986,
+        49.35071182342341
+      ],
+      "id": 2
+    },
+    {
+      "name": "Manish Kumar",
+      "email": "manish@gmail.com",
+      "password": "manish123",
+      "avatar": "https://i.pinimg.com/originals/47/e0/19/47e0199dd2cbe80748206c1019246756.jpg",
+      "location": [
+        8.690588957075363,
+        49.42347681562373
+      ],
+      "id": 3
+    },
+    {
+      "name": "Adithya",
+      "email": "adithya@gmail.com",
+      "password": "adithya123",
+      "avatar": "https://i.pinimg.com/474x/e9/97/fb/e997fb1a442183bd9d0b6e5c7f6e93e9.jpg",
+      "location": [
+        8.494041917331089,
+        49.50754637161759
+      ],
+      "id": 4
     }
   ],
   "blogs": [
@@ -22,20 +55,116 @@
       "id": 1
     },
     {
-      "title": "another blog",
-      "content": "Mark Twain said of Heidelberg Castle that \"A ruin must be rightly situated, to be effective. This one could not have been better placed.\" Built of red Neckar sandstone on the terraced hillside nearly 200 meters directly above Heidelberg's Old Town, this 16th-century castle is one of the best examples of German Renaissance architecture.\n\nAfter its destruction by the French, who devastated the Palatinate in the 17th century, it has remained the largest and most picturesque such ruin, and one of the best castles in Germany.\n\nThe castle is the site of many festivals, most held in its evocative courtyard, where there are also frequent theater performances, concerts, and fireworks displays. One of the most popular events is the Heidelberg Castle Festival from June to August, which features an eclectic mix of theater, choral music, chamber orchestras, jazz, folk, and opera.\n\nHeidelberg Castle can be reached by the Bergbahn, a funicular railway running from the Kornmarkt, or via a 15-minute walk from the Old Town.\n\nAddress: Schlosshof 1, Heidelberg\n\n",
-      "blogImgUrl": "https://www.germany.travel/media/redaktion/content/schloesser_burgen_content/schloesser_und_burgen/artikel_schloesser_burgen/_grb9397.jpg",
+      "title": "Altstadt (The Old Town)",
+      "content": "Heidelberg's Hauptstrasse is the place to start exploring this beautiful city. From this narrow main street, you'll find countless even narrower side streets and alleyways just begging to be explored, each bursting with things to see: unspoiled medieval architecture, splendid old churches, boutique shops, galleries, cafés, and restaurants.\n\nHighlights include the early 15th-century Heiliggeistkirche, the Church of the Holy Spirit, and Haus zum Ritter, a Renaissance building dating from 1592. Other highlights include the Neckarstaden where you'll find Marstall, the old court stables and home of Heidelberg University's art collection, as well as the Stadthalle adjoining the landing stages for the many boats that take tourists for cruises along the castle-lined Neckar.\n\nIn December, the outstanding Heidelberg Christmas Market is so large it fills five city squares; one becomes a public skating rink, while the Kornmarkt is transformed into a fairy-tale scene with the lighted castle towering above.\n\nIf you want to explore the Old Town with a local guide who will share interesting historical and cultural contexts, the two-hour Heidelberg Old Town Tour is a good choice. This walking tour includes stops at landmark buildings, Market Square, the Old Bridge, and other top sights.",
+      "blogImgUrl": "https://www.planetware.com/photos-large/D/germany-heidelberg-hauptstrasse-altstadt.jpg",
       "authorId": 1,
       "url": "http://localhost:3000/blogs/1/undefined",
       "id": 2
     },
     {
-      "title": "blog 3",
+      "title": "Church of the Holy Spirit",
+      "content": "Its Baroque spire a landmark of the old town, the Church of the Holy Spirit is in the center of Heidelberg's market square. The foundations were laid in 1398, but it wasn't until 1544 that the tower was completed. The tower you see today, however, was built in 1709 after the church had been set on fire by the French in the War of the Palatine Succession.\n\nThe church is an example of early ecumenism, or at least of peaceful co-existence between Catholics and Protestants, each of whom used it, and often at the same time. In 1706, a partition was built so each could hold services simultaneously; the wall was removed in 1936 and the church is now Protestant.\n\nFor a view of the town, river, and castle, climb the 200 steps to the tower.",
+      "blogImgUrl": "https://image.arrivalguides.com/1230x800/05/a09f42b973304103e242fb22ed3e32fc.jpg",
+      "authorId": 1,
+      "url": "http://localhost:3000/blogs/1/undefined",
+      "id": 3
+    },
+    {
+      "title": "Heidelberg University",
+      "content": "On the south side of the Hauptstrasse lies Universitätsplatz, with the Old University dating back to 1711. On its east side, in Augustinergasse, is the Pedellenhaus with the former Student Prison, Karzer, which for many is the most memorable part of a visit to Heidelberg University.\n\nHere, students found guilty of misdeeds (such as dueling or disturbing the peace by singing at night) were incarcerated for 24 hours. While there, they decorated the walls with graffiti that remains today.\n\nThe New University was built in 1928-31, behind which rises the Hexenturm, or Witches' Tower, once part of the town's fortifications. Nearby, in Grabengasse, you'll find the richly stocked University Library whose principal treasure is the 14th-century Manessische Handschrift, an illuminated manuscript of medieval songs.\n\nTake time to see the Seminargebäude, the Mensa students' refectory, and the 15th-century Peterskirche, a tiny chapel now used mainly as the university church.\n\nAddress: Grabengasse 1, Heidelberg\n\n",
+      "blogImgUrl": "https://www.heidelberg.edu/sites/default/files/styles/944width/public/images/news-images/US-REPORT.jpg",
+      "authorId": 1,
+      "url": "http://localhost:3000/blogs/1/undefined",
+      "id": 4
+    },
+    {
+      "title": "Heidelberg Castle",
       "content": "Mark Twain said of Heidelberg Castle that \"A ruin must be rightly situated, to be effective. This one could not have been better placed.\" Built of red Neckar sandstone on the terraced hillside nearly 200 meters directly above Heidelberg's Old Town, this 16th-century castle is one of the best examples of German Renaissance architecture.\n\nAfter its destruction by the French, who devastated the Palatinate in the 17th century, it has remained the largest and most picturesque such ruin, and one of the best castles in Germany.\n\nThe castle is the site of many festivals, most held in its evocative courtyard, where there are also frequent theater performances, concerts, and fireworks displays. One of the most popular events is the Heidelberg Castle Festival from June to August, which features an eclectic mix of theater, choral music, chamber orchestras, jazz, folk, and opera.\n\nHeidelberg Castle can be reached by the Bergbahn, a funicular railway running from the Kornmarkt, or via a 15-minute walk from the Old Town.\n\nAddress: Schlosshof 1, Heidelberg\n\n",
       "blogImgUrl": "https://www.germany.travel/media/redaktion/content/schloesser_burgen_content/schloesser_und_burgen/artikel_schloesser_burgen/_grb9397.jpg",
       "authorId": 1,
       "url": "http://localhost:3000/blogs/1/undefined",
-      "id": 3
+      "id": 5
+    },
+    {
+      "title": "Altstadt (The Old Town)",
+      "content": "Heidelberg's Hauptstrasse is the place to start exploring this beautiful city. From this narrow main street, you'll find countless even narrower side streets and alleyways just begging to be explored, each bursting with things to see: unspoiled medieval architecture, splendid old churches, boutique shops, galleries, cafés, and restaurants.\n\nHighlights include the early 15th-century Heiliggeistkirche, the Church of the Holy Spirit, and Haus zum Ritter, a Renaissance building dating from 1592. Other highlights include the Neckarstaden where you'll find Marstall, the old court stables and home of Heidelberg University's art collection, as well as the Stadthalle adjoining the landing stages for the many boats that take tourists for cruises along the castle-lined Neckar.\n\nIn December, the outstanding Heidelberg Christmas Market is so large it fills five city squares; one becomes a public skating rink, while the Kornmarkt is transformed into a fairy-tale scene with the lighted castle towering above.\n\nIf you want to explore the Old Town with a local guide who will share interesting historical and cultural contexts, the two-hour Heidelberg Old Town Tour is a good choice. This walking tour includes stops at landmark buildings, Market Square, the Old Bridge, and other top sights.",
+      "blogImgUrl": "https://www.planetware.com/photos-large/D/germany-heidelberg-hauptstrasse-altstadt.jpg",
+      "authorId": 1,
+      "url": "http://localhost:3000/blogs/1/undefined",
+      "id": 6
+    },
+    {
+      "title": "Church of the Holy Spirit",
+      "content": "Its Baroque spire a landmark of the old town, the Church of the Holy Spirit is in the center of Heidelberg's market square. The foundations were laid in 1398, but it wasn't until 1544 that the tower was completed. The tower you see today, however, was built in 1709 after the church had been set on fire by the French in the War of the Palatine Succession.\n\nThe church is an example of early ecumenism, or at least of peaceful co-existence between Catholics and Protestants, each of whom used it, and often at the same time. In 1706, a partition was built so each could hold services simultaneously; the wall was removed in 1936 and the church is now Protestant.\n\nFor a view of the town, river, and castle, climb the 200 steps to the tower.",
+      "blogImgUrl": "https://image.arrivalguides.com/1230x800/05/a09f42b973304103e242fb22ed3e32fc.jpg",
+      "authorId": 1,
+      "url": "http://localhost:3000/blogs/1/undefined",
+      "id": 7
+    },
+    {
+      "title": "Heidelberg University",
+      "content": "On the south side of the Hauptstrasse lies Universitätsplatz, with the Old University dating back to 1711. On its east side, in Augustinergasse, is the Pedellenhaus with the former Student Prison, Karzer, which for many is the most memorable part of a visit to Heidelberg University.\n\nHere, students found guilty of misdeeds (such as dueling or disturbing the peace by singing at night) were incarcerated for 24 hours. While there, they decorated the walls with graffiti that remains today.\n\nThe New University was built in 1928-31, behind which rises the Hexenturm, or Witches' Tower, once part of the town's fortifications. Nearby, in Grabengasse, you'll find the richly stocked University Library whose principal treasure is the 14th-century Manessische Handschrift, an illuminated manuscript of medieval songs.\n\nTake time to see the Seminargebäude, the Mensa students' refectory, and the 15th-century Peterskirche, a tiny chapel now used mainly as the university church.\n\nAddress: Grabengasse 1, Heidelberg\n\n",
+      "blogImgUrl": "https://www.heidelberg.edu/sites/default/files/styles/944width/public/images/news-images/US-REPORT.jpg",
+      "authorId": 1,
+      "url": "http://localhost:3000/blogs/1/undefined",
+      "id": 8
+    },
+    {
+      "title": "Heidelberg University",
+      "content": "On the south side of the Hauptstrasse lies Universitätsplatz, with the Old University dating back to 1711. On its east side, in Augustinergasse, is the Pedellenhaus with the former Student Prison, Karzer, which for many is the most memorable part of a visit to Heidelberg University.\n\nHere, students found guilty of misdeeds (such as dueling or disturbing the peace by singing at night) were incarcerated for 24 hours. While there, they decorated the walls with graffiti that remains today.\n\nThe New University was built in 1928-31, behind which rises the Hexenturm, or Witches' Tower, once part of the town's fortifications. Nearby, in Grabengasse, you'll find the richly stocked University Library whose principal treasure is the 14th-century Manessische Handschrift, an illuminated manuscript of medieval songs.\n\nTake time to see the Seminargebäude, the Mensa students' refectory, and the 15th-century Peterskirche, a tiny chapel now used mainly as the university church.\n\nAddress: Grabengasse 1, Heidelberg\n\n",
+      "blogImgUrl": "https://www.heidelberg.edu/sites/default/files/styles/944width/public/images/news-images/US-REPORT.jpg",
+      "authorId": 2,
+      "url": "http://localhost:3000/blogs/1/undefined",
+      "id": 9
+    },
+    {
+      "title": "Heidelberg Castle",
+      "content": "Mark Twain said of Heidelberg Castle that \"A ruin must be rightly situated, to be effective. This one could not have been better placed.\" Built of red Neckar sandstone on the terraced hillside nearly 200 meters directly above Heidelberg's Old Town, this 16th-century castle is one of the best examples of German Renaissance architecture.\n\nAfter its destruction by the French, who devastated the Palatinate in the 17th century, it has remained the largest and most picturesque such ruin, and one of the best castles in Germany.\n\nThe castle is the site of many festivals, most held in its evocative courtyard, where there are also frequent theater performances, concerts, and fireworks displays. One of the most popular events is the Heidelberg Castle Festival from June to August, which features an eclectic mix of theater, choral music, chamber orchestras, jazz, folk, and opera.\n\nHeidelberg Castle can be reached by the Bergbahn, a funicular railway running from the Kornmarkt, or via a 15-minute walk from the Old Town.\n\nAddress: Schlosshof 1, Heidelberg\n\n",
+      "blogImgUrl": "https://www.germany.travel/media/redaktion/content/schloesser_burgen_content/schloesser_und_burgen/artikel_schloesser_burgen/_grb9397.jpg",
+      "authorId": 2,
+      "url": "http://localhost:3000/blogs/1/undefined",
+      "id": 10
+    },
+    {
+      "title": "Altstadt (The Old Town)",
+      "content": "Heidelberg's Hauptstrasse is the place to start exploring this beautiful city. From this narrow main street, you'll find countless even narrower side streets and alleyways just begging to be explored, each bursting with things to see: unspoiled medieval architecture, splendid old churches, boutique shops, galleries, cafés, and restaurants.\n\nHighlights include the early 15th-century Heiliggeistkirche, the Church of the Holy Spirit, and Haus zum Ritter, a Renaissance building dating from 1592. Other highlights include the Neckarstaden where you'll find Marstall, the old court stables and home of Heidelberg University's art collection, as well as the Stadthalle adjoining the landing stages for the many boats that take tourists for cruises along the castle-lined Neckar.\n\nIn December, the outstanding Heidelberg Christmas Market is so large it fills five city squares; one becomes a public skating rink, while the Kornmarkt is transformed into a fairy-tale scene with the lighted castle towering above.\n\nIf you want to explore the Old Town with a local guide who will share interesting historical and cultural contexts, the two-hour Heidelberg Old Town Tour is a good choice. This walking tour includes stops at landmark buildings, Market Square, the Old Bridge, and other top sights.",
+      "blogImgUrl": "https://www.planetware.com/photos-large/D/germany-heidelberg-hauptstrasse-altstadt.jpg",
+      "authorId": 2,
+      "url": "http://localhost:3000/blogs/1/undefined",
+      "id": 11
+    },
+    {
+      "title": "Altstadt (The Old Town)",
+      "content": "Heidelberg's Hauptstrasse is the place to start exploring this beautiful city. From this narrow main street, you'll find countless even narrower side streets and alleyways just begging to be explored, each bursting with things to see: unspoiled medieval architecture, splendid old churches, boutique shops, galleries, cafés, and restaurants.\n\nHighlights include the early 15th-century Heiliggeistkirche, the Church of the Holy Spirit, and Haus zum Ritter, a Renaissance building dating from 1592. Other highlights include the Neckarstaden where you'll find Marstall, the old court stables and home of Heidelberg University's art collection, as well as the Stadthalle adjoining the landing stages for the many boats that take tourists for cruises along the castle-lined Neckar.\n\nIn December, the outstanding Heidelberg Christmas Market is so large it fills five city squares; one becomes a public skating rink, while the Kornmarkt is transformed into a fairy-tale scene with the lighted castle towering above.\n\nIf you want to explore the Old Town with a local guide who will share interesting historical and cultural contexts, the two-hour Heidelberg Old Town Tour is a good choice. This walking tour includes stops at landmark buildings, Market Square, the Old Bridge, and other top sights.",
+      "blogImgUrl": "https://www.planetware.com/photos-large/D/germany-heidelberg-hauptstrasse-altstadt.jpg",
+      "authorId": 3,
+      "url": "http://localhost:3000/blogs/1/undefined",
+      "id": 12
+    },
+    {
+      "title": "Church of the Holy Spirit",
+      "content": "Its Baroque spire a landmark of the old town, the Church of the Holy Spirit is in the center of Heidelberg's market square. The foundations were laid in 1398, but it wasn't until 1544 that the tower was completed. The tower you see today, however, was built in 1709 after the church had been set on fire by the French in the War of the Palatine Succession.\n\nThe church is an example of early ecumenism, or at least of peaceful co-existence between Catholics and Protestants, each of whom used it, and often at the same time. In 1706, a partition was built so each could hold services simultaneously; the wall was removed in 1936 and the church is now Protestant.\n\nFor a view of the town, river, and castle, climb the 200 steps to the tower.",
+      "blogImgUrl": "https://image.arrivalguides.com/1230x800/05/a09f42b973304103e242fb22ed3e32fc.jpg",
+      "authorId": 3,
+      "url": "http://localhost:3000/blogs/1/undefined",
+      "id": 13
+    },
+    {
+      "title": "Church of the Holy Spirit",
+      "content": "Its Baroque spire a landmark of the old town, the Church of the Holy Spirit is in the center of Heidelberg's market square. The foundations were laid in 1398, but it wasn't until 1544 that the tower was completed. The tower you see today, however, was built in 1709 after the church had been set on fire by the French in the War of the Palatine Succession.\n\nThe church is an example of early ecumenism, or at least of peaceful co-existence between Catholics and Protestants, each of whom used it, and often at the same time. In 1706, a partition was built so each could hold services simultaneously; the wall was removed in 1936 and the church is now Protestant.\n\nFor a view of the town, river, and castle, climb the 200 steps to the tower.",
+      "blogImgUrl": "https://image.arrivalguides.com/1230x800/05/a09f42b973304103e242fb22ed3e32fc.jpg",
+      "authorId": 4,
+      "url": "http://localhost:3000/blogs/1/undefined",
+      "id": 14
+    },
+    {
+      "title": "Heidelberg University",
+      "content": "On the south side of the Hauptstrasse lies Universitätsplatz, with the Old University dating back to 1711. On its east side, in Augustinergasse, is the Pedellenhaus with the former Student Prison, Karzer, which for many is the most memorable part of a visit to Heidelberg University.\n\nHere, students found guilty of misdeeds (such as dueling or disturbing the peace by singing at night) were incarcerated for 24 hours. While there, they decorated the walls with graffiti that remains today.\n\nThe New University was built in 1928-31, behind which rises the Hexenturm, or Witches' Tower, once part of the town's fortifications. Nearby, in Grabengasse, you'll find the richly stocked University Library whose principal treasure is the 14th-century Manessische Handschrift, an illuminated manuscript of medieval songs.\n\nTake time to see the Seminargebäude, the Mensa students' refectory, and the 15th-century Peterskirche, a tiny chapel now used mainly as the university church.\n\nAddress: Grabengasse 1, Heidelberg\n\n",
+      "blogImgUrl": "https://www.heidelberg.edu/sites/default/files/styles/944width/public/images/news-images/US-REPORT.jpg",
+      "authorId": 5,
+      "url": "http://localhost:3000/blogs/1/undefined",
+      "id": 15
     }
   ],
   "reviews": []
