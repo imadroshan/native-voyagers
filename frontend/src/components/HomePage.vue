@@ -69,9 +69,11 @@ export default {
           let contentSnippet = blog.content.substring(0, 200) + '...';
 
           carouselHtml += `
-            <div class="swiper-slide" style="overflow:auto; pointer-events:none">
+            <div class="swiper-slide" style="overflow:auto; pointer-events:auto">
               <h2>${blog.title}</h2>
+              <a href="#/blog/${blog.id}">
               <img src="${blog.blogImgUrl}" style="width:100%; height:150px; object-fit:cover"/>
+              </a>
               <p class="blog-snippet">${contentSnippet}</p>
             </div>`;
         });

@@ -3,7 +3,9 @@
     <v-app-bar-nav-icon @click="$emit('toggleDrawer')"></v-app-bar-nav-icon>
     <v-toolbar-title class="clickable-title" @click="gotoHomePage">Native Voyager</v-toolbar-title>
     <v-spacer></v-spacer>
-    <v-btn  class="my-blog-button" @click="gotoMyBlog" v-if="loggedIn">My Blog</v-btn>
+    <v-btn class="all-blogs-button" @click="gotoAllBlogs">All Blogs</v-btn>
+    <v-spacer></v-spacer>
+    <v-btn class="my-blog-button" @click="gotoMyBlog" v-if="loggedIn">My Blog</v-btn>
     <v-btn class="signup-button" v-if="!loggedIn" @click="$emit('toggleSignupDialog')">Sign Up</v-btn> 
     <v-btn class="login-button" v-if="!loggedIn" @click="$emit('toggleDialog')">Login</v-btn>
     <v-menu offset-y v-else>
@@ -28,6 +30,7 @@
     </v-menu>
   </v-toolbar>
 </template>
+
 
 <script>
 import { mapState } from 'vuex'
@@ -62,6 +65,11 @@ export default {
         this.$router.push('/');
       }
     },
+    gotoAllBlogs() {
+    if (this.$route.path !== '/allblogs') {
+      this.$router.push('/allblogs');
+    }
+  },
   },
 }
 </script>
@@ -91,5 +99,9 @@ export default {
 }
 .clickable-title {
   cursor: pointer;
+}
+.all-blogs-button {
+  background-color: #9d5fcd !important; /* Purple darken-1 */
+  color: white !important;
 }
 </style>
