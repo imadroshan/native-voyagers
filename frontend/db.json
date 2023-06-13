@@ -167,5 +167,42 @@
       "id": 15
     }
   ],
-  "reviews": []
+  "reviews": [
+    {
+      "authorname": "Adithya",
+      "comment": "It's the best place to be visited!!",
+      "rating": "1",
+      "id": 1
+    },
+    {
+      "authorname": "adi",
+      "comment": "good",
+      "rating": "3",
+      "id": 4
+    },
+    {
+      "authorname": "adi",
+      "comment": "good",
+      "rating": "4",
+      "id": 5
+    },
+    {
+      "authorname": "adi",
+      "comment": "good",
+      "rating": "4",
+      "id": 6
+    },
+    {
+      "authorname": "adi",
+      "comment": "sd",
+      "rating": "4",
+      "id": 7
+    },
+    {
+      "authorname": "adi",
+      "comment": "good",
+      "rating": "4",
+      "id": 8
+    }
+  ]
 }

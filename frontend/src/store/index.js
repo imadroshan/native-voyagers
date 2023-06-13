@@ -1,19 +1,23 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-import createPersistedState from 'vuex-persistedstate'
+import Vue from 'vue';
+import Vuex from 'vuex';
+import createPersistedState from 'vuex-persistedstate';
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    currentUser: null
+    currentUser: null,
+    reviews: [] // Add the 'reviews' array to the state
   },
   mutations: {
     login(state, user) {
-      state.currentUser = user
+      state.currentUser = user;
     },
     logout(state) {
-      state.currentUser = null
+      state.currentUser = null;
+    },
+    addReview(state, review) {
+      state.reviews.push(review);
     }
   },
   actions: {
@@ -26,4 +30,4 @@ export default new Vuex.Store({
     // divide your store into modules if necessary
   },
   plugins: [createPersistedState()]
-})
+});
