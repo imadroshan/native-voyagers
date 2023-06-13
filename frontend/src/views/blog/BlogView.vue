@@ -19,24 +19,29 @@
             <label for="blog-url">Blog Image URL</label>
             <input id="blog-url" type="text" placeholder="Enter Blog Image URL" v-model="blogImgUrl" />
           </div>
-          <div ref="mapContainer" class="mapBox"></div>
-          <div class="blog-actions">
-            <button @click="createBlog">Publish Blog</button>
-            <button @click="cancelCreateBlog">Cancel</button>
-          </div>
-        </div>
-      </div>
+              <div class="blogAddress">
+                <label for="blog-address">Blog Address</label>
+                <input id="blog-address" type="text" placeholder="Enter Blog Address" v-model="blogAddress" />
+              </div>
 
-      <!-- card list -->
-      <div class="blog-list">
-        <b-card v-for="blog in blogs" :key="blog.id" class="mb-2">
-          <b-card-img :src="blog.blogImgUrl" alt="Blog Image" top class="blog-img"></b-card-img>
-          <b-card-body>
-            <b-card-title>{{ blog.title }}</b-card-title>
-            <b-card-text>{{ blog.content }}</b-card-text>
-                      <b-button :href="blog.url" variant="primary" class="read-button">Read More</b-button>
-              
-                <b-button @click="openBlog(blog)" class="Read More" variant="warning">Edit</b-button>
+                  <!-- <div ref="mapContainer" class="mapBox"></div> -->
+                  <div class="blog-actions">
+                    <button @click="createBlog">Publish Blog</button>
+                    <button @click="cancelCreateBlog">Cancel</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- card list -->
+              <div class="blog-list">
+                <b-card v-for="blog in blogs" :key="blog.id" class="mb-2">
+                  <b-card-img :src="blog.blogImgUrl" alt="Blog Image" top class="blog-img"></b-card-img>
+                  <b-card-body>
+                    <b-card-title>{{ blog.title }}</b-card-title>
+                    <b-card-text>{{ blog.content }}</b-card-text>
+                              <!-- <b-button :href="blog.url" variant="primary" class="read-button">Read More</b-button> -->
+  
+              <b-button @click="openBlog(blog)" class="Read More" variant="primary">Read more</b-button>
             <b-button @click="openEditPopup(blog)" class="edit-button" variant="warning">Edit</b-button>
           <b-button @click="deleteBlog(blog.id)" variant="danger">Delete</b-button>
         </b-card-body>
@@ -82,6 +87,7 @@ export default {
       blogTitle: "",
       blogContent: "",
       blogImgUrl: "",
+      blogAddress: "",
       error: null,
       errorMsg: null,
       CreatePopup: false,
@@ -118,14 +124,12 @@ export default {
       if (this.marker) {
         this.marker.remove(); // Remove the old marker
       }
-      
+
       this.marker = new mapboxgl.Marker({ draggable: true })
         .setLngLat(e.result.geometry.coordinates)
         .addTo(this.map);
     })
 
-    // Fetch existing blogs
-    
   },
   methods: {
     showCreatePostPopup() {
@@ -138,14 +142,31 @@ export default {
           content: this.blogContent,
           blogImgUrl: this.blogImgUrl,
           authorId: this.$store.state.currentUser.id,
-          url: `http://localhost:3000/blogs/${this.$store.state.currentUser.id}/${this.$store.state.id}`
+          url: `http://localhost:3000/blogs/${this.$store.state.currentUser.id}/${this.$store.state.id}`,
+          address: this.blogAddress,
+          location: [], // Will be updated later
         };
 
+        // Use a geocoding service to convert address to coordinates
         axios
-          .post("http://localhost:3000/blogs", newBlog)
+          .get('https://api.mapbox.com/geocoding/v5/mapbox.places/' + encodeURIComponent(this.blogAddress) + '.json?access_token=' + process.env.VUE_APP_MAPBOX_TOKEN)
           .then(response => {
-            console.log(response.data);
-            this.fetchBlogs();
+            if (response.data.features.length > 0) {
+              const coordinates = response.data.features[0].geometry.coordinates;
+              newBlog.location = [coordinates[0], coordinates[1]];
+
+              axios
+                .post("http://localhost:3000/blogs", newBlog)
+                .then(response => {
+                  console.log(response.data);
+                  this.fetchBlogs();
+                })
+                .catch(error => {
+                  console.error(error);
+                });
+            } else {
+              throw new Error('No location found for the given address.');
+            }
           })
           .catch(error => {
             console.error(error);
@@ -154,6 +175,7 @@ export default {
         this.blogTitle = "";
         this.blogContent = "";
         this.blogImgUrl = "";
+        this.blogAddress = "";
         this.CreatePopup = false;
       } else {
         this.error = true;
@@ -167,11 +189,8 @@ export default {
       this.CreatePopup = false;
     },
     fetchBlogs() {
-      // Perform an API request to fetch the blogs
-      // Replace the API endpoint with your actual endpoint
       axios.get('http://localhost:3000/blogs')
         .then(response => {
-          // Filter blogs based on the current user's id
           const filteredBlogs = response.data.filter(blog => blog.authorId === this.$store.state.currentUser.id);
           this.blogs = filteredBlogs;
         })
@@ -180,11 +199,8 @@ export default {
         });
     },
     deleteBlog(blogId) {
-      // Perform an API request to delete the blog
-      // Replace the API endpoint with your actual endpoint
       axios.delete(`http://localhost:3000/blogs/${blogId}`)
         .then(() => {
-          // Remove the deleted blog from the list
           this.blogs = this.blogs.filter(blog => blog.id !== blogId);
         })
         .catch(error => {
@@ -205,7 +221,6 @@ export default {
         });
     },
     openBlog(url) {
-      // Navigate to the blog URL
       window.location.href = url;
     },
     cancelEdit() {
@@ -392,6 +407,29 @@ export default {
   }
 
   .blogImgUrl {
+    display: flex;
+    align-items: center;
+
+    label {
+      margin-right: 10px;
+      font-weight: bold;
+    }
+
+    input {
+      transition: 0.5s ease-in-out all;
+      padding: 10px 4px;
+      border: none;
+      border-bottom: 1px solid #303030;
+      flex: 1;
+
+      &:focus {
+        outline: none;
+        box-shadow: 0 1px 0 0 #303030;
+      }
+    }
+  }
+
+  .blogAddress {
     display: flex;
     align-items: center;
 
